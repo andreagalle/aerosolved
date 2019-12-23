@@ -12,7 +12,7 @@ thermoType
     type            heAerosolRhoThermo;
     mixture         aerosolPhase;
     transport       const;
-    thermo          hConst;
+    thermo          eConst;
     energy          sensibleInternalEnergy;
     equationOfState perfectGas;
     specie          specie;
@@ -28,7 +28,7 @@ species
         }
         thermodynamics
         {
-            Cp              1e3;
+            Cv              0.75e3;
             Hf              0;
         }
         transport
@@ -55,7 +55,7 @@ species
         }
         thermodynamics
         {
-            Cp              1e3;
+            Cv              3.5e3;
             Hf              0;
         }
         transport

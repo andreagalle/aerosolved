@@ -7,6 +7,12 @@ FoamFile
     object      decomposeParDict;
 }
 
-numberOfSubdomains 8;
+numberOfSubdomains 68;
 
-method             scotch;
+method             simple;
+
+simpleCoeffs
+{
+	n	(17 2 2);
+	delta	0.001;
+}

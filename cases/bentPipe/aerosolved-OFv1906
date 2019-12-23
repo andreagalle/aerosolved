@@ -1,0 +1,48 @@
+#!/bin/bash
+
+#SBATCH --account=IscrB_SMMB
+#SBATCH -N1 --ntasks-per-node=68
+#SBATCH --time=00:15:00
+#SBATCH --error=%x-%j.err
+#SBATCH --output=%x-%j.out
+#SBATCH --partition=knl_usr_prod
+######SBATCH --partition=knl_usr_dbg
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=andrea.gallegati@uniroma1.it
+
+module purge
+module load profile/eng
+#module load profile/phys
+module load autoload
+module load openfoam+/v1906
+module load python/3.6.4
+
+echo "module loaded are the following"
+
+module list
+
+#solver=icoFoam
+
+#jobid=`echo $SLURM_JOB_ID | sed 's/[.].*//'`
+
+echo "jobid is" $SLURM_JOB_ID
+echo "Running on hostname" `hostname`
+echo "SLURM_CPUS_ON_NODE is" $SLURM_CPUS_ON_NODE
+echo "SLURM_NTASKS is" $SLURM_NTASKS
+echo "SLURM_JOB_NUM_NODES is" $SLURM_JOB_NUM_NODES
+echo "SLURM_CLUSTER_NAME is" $SLURM_CLUSTER_NAME
+echo "SLURM_JOB_NAME is" $SLURM_JOB_NAME
+echo "SLURM_JOB_USER is" $SLURM_JOB_USER
+echo "SLURM_PROCID is" $SLURM_PROCID
+echo "Available resource are" $SLURM_JOB_NODELIST
+echo "Job started at `date` on nodes:" $SLURM_JOB_NODELIST
+
+export np=$SLURM_NTASKS
+
+echo "np is" $np
+
+#mpirun -np $np $solver -parallel > output.$SLURM_JOBID
+
+./Allclean
+./Allrun fullStokes sectional
+

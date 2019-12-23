@@ -5,6 +5,9 @@ cd ${0%/*} || exit 1
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 . ../../scripts/AeroSolvedRunFunctions
 
+## The custom locations
+#[ -n "$FOAM_USER_APPBIN" ] || export FOAM_USER_APPBIN=/marconi/home/userexternal/agallega/OpenFOAM/agallega-v1906/platforms/linux64IccDPInt32OptComm/bin
+
 checkPython3
 
 # Mesh settings
