@@ -1,0 +1,15 @@
+# Ignore everything in this directory
+processor*
+*.out
+*.err
+log.*
+0*
+*.foam
+postProcessing
+constant/aerosolProperties
+constant/polyMesh/
+system/blockMeshDict
+system/controlDict
+#*
+# Except this file
+!.gitignore
