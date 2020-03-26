@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git config user.name "andreagalle"
+git config user.email "andreagalle@hotmail.it"
+
