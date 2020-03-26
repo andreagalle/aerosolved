@@ -15,177 +15,166 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-convertometres 1;
+
+metres 1;
 
 vertices
 (
-	(0.25 0 -0.1) //0
-	(0 0.25 -0.1) //1
-	(-0.25 0 -0.1) //2
-	(0 -0.25 -0.1) //3 dummy points 
-
-	(0.25 0 0) //4
-	(0 0.25 0) //5
-	(-0.25 0 0) //6
-	(0 -0.25 0) //7 bottom hollow cylinder
+	(0.25 0 0) //0 bottom hollow cylinder
+	(0 0.25 0) //1
+	(-0.25 0 0) //2
+	(0 -0.25 0) //3 
 	
-	(0 0 -0.1) //8 center point bottom inlet pipe
-	(0 0 0) //9 center point top inlet pipe
+	(0 0 -0.1) //4 center point bottom inlet pipe
+	(0 0 0) //5 center point top inlet pipe
 	
-	(0.01 0 -0.1) //10
-	(0 0.01 -0.1) //11
-	(-0.01 0 -0.1) //12
-	(0 -0.01 -0.1) //13 bottom inlet pipe
+	(0.01 0 -0.1) //6 bottom inlet pipe
+	(0 0.01 -0.1) //7
+	(-0.01 0 -0.1) //8
+	(0 -0.01 -0.1) //9 
 	
-	(0.01 0 0) //14
-	(0 0.01 0) //15
-	(-0.01 0 0) //16
-	(0 -0.01 0) //17 bottom inner cylinder
+	(0.01 0 0) //10 bottom inner cylinder
+	(0 0.01 0) //11
+	(-0.01 0 0) //12
+	(0 -0.01 0) //13 
 	
-	(0.25 0 1) //18
-	(0 0.25 1) //19
-	(-0.25 0 1) //20
-	(0 -0.25 1) //21 top hollow cylinder
+	(0.25 0 1) //14 top hollow cylinder
+	(0 0.25 1) //15
+	(-0.25 0 1) //16
+	(0 -0.25 1) //17 
 	
-	(0 0 1) //22 centre point top inner cylinder
+	(0 0 1) //18 center point top inner cylinder
 	
-	(0.01 0 1) //23
-	(0 0.01 1) //24
-	(-0.01 0 1) //25
-	(0 -0.01 1) //26 top inner cylinder
+	(0.01 0 1) //19 top inner cylinder
+	(0 0.01 1) //20
+	(-0.01 0 1) //21
+	(0 -0.01 1) //22 
 	
 	
 );
 
 blocks //(x_cells equal between all blocks, y_cells equal between inlet and inner cylinder, z_cells at will)
 (
-	hex (14 15 9 9 23 24 22 22) (25 1 100) simpleGrading (1 1 1) //inner cylinder 
-	hex (15 16 9 9 24 25 22 22) (25 1 100) simpleGrading (1 1 1)
-	hex (16 17 9 9 25 26 22 22) (25 1 100) simpleGrading (1 1 1)
-	hex (17 14 9 9 26 23 22 22) (25 1 100) simpleGrading (1 1 1) 
+	hex (10 11 5 5 19 20 18 18) (25 1 100) simpleGrading (1 1 1) //inner cylinder 
+	hex (11 12 5 5 20 21 18 18) (25 1 100) simpleGrading (1 1 1)
+	hex (12 13 5 5 21 22 18 18) (25 1 100) simpleGrading (1 1 1)
+	hex (13 10 5 5 22 19 18 18) (25 1 100) simpleGrading (1 1 1) 
 	
-	hex (10 11 8 8 14 15 9 9) (25 1 10) simpleGrading (1 1 1) //inlet pipe
-	hex (11 12 8 8 15 16 9 9) (25 1 10) simpleGrading (1 1 1)
-	hex (12 13 8 8 16 17 9 9) (25 1 10) simpleGrading (1 1 1)
-	hex (13 10 8 8 17 14 9 9) (25 1 10) simpleGrading (1 1 1) 
+	hex (6 7 4 4 10 11 5 5) (25 1 10) simpleGrading (1 1 1) //inlet pipe
+	hex (7 8 4 4 11 12 5 5) (25 1 10) simpleGrading (1 1 1)
+	hex (8 9 4 4 12 13 5 5) (25 1 10) simpleGrading (1 1 1)
+	hex (9 6 4 4 13 10 5 5) (25 1 10) simpleGrading (1 1 1) 
 	
-	hex (4 5 15 14 18 19 24 23) (25 24 100) simpleGrading (1 1 1) //hollow cylinder
-	hex (5 6 16 15 19 20 25 24) (25 24 100) simpleGrading (1 1 1)
-	hex (6 7 17 16 20 21 26 25) (25 24 100) simpleGrading (1 1 1)
-	hex (7 4 14 17 21 18 23 26) (25 24 100) simpleGrading (1 1 1) 
+	hex (0 1 11 10 14 15 20 19) (25 24 100) simpleGrading (1 1 1) //hollow cylinder
+	hex (1 2 12 11 15 16 21 20) (25 24 100) simpleGrading (1 1 1)
+	hex (2 3 13 12 16 17 22 21) (25 24 100) simpleGrading (1 1 1)
+	hex (3 0 10 13 17 14 19 22) (25 24 100) simpleGrading (1 1 1) 
 );
 
 edges
 (
-	arc 4 5 (0.17677 0.17677 0) //(cx+r*cos45 cy+r*sin45 0) bottom holllow cylinder
-	arc 5 6 (-0.17677 0.17677 0)
-	arc 6 7 (-0.17677 -0.17677 0)
-	arc 7 4 (0.17677 -0.17677 0)
+	arc 0 1 (0.17677 0.17677 0) //(cx+r*cos45 cy+r*sin45 0) bottom holllow cylinder
+	arc 1 2 (-0.17677 0.17677 0)
+	arc 2 3 (-0.17677 -0.17677 0)
+	arc 3 0 (0.17677 -0.17677 0)
 	
-	arc 10 11 (0.00707 0.00707 -0.1) // bottom inlet pipe
-	arc 11 12 (-0.00707 0.00707 -0.1) 
-	arc 12 13 (-0.00707 -0.00707 -0.1) 
-	arc 13 10 (0.00707 -0.00707 -0.1) 
+	arc 6 7 (0.00707 0.00707 -0.1) // bottom inlet pipe
+	arc 7 8 (-0.00707 0.00707 -0.1) 
+	arc 8 9 (-0.00707 -0.00707 -0.1) 
+	arc 9 6 (0.00707 -0.00707 -0.1) 
 	
-	arc 14 15 (0.00707 0.00707 0) // top inlet pipe
-	arc 15 16 (-0.00707 0.00707 0) 
-	arc 16 17 (-0.00707 -0.00707 0) 
-	arc 17 14 (0.00707 -0.00707 0)
+	arc 10 11 (0.00707 0.00707 0) // top inlet pipe
+	arc 11 12 (-0.00707 0.00707 0) 
+	arc 12 13 (-0.00707 -0.00707 0) 
+	arc 13 10 (0.00707 -0.00707 0)
 	
-	arc 18 19 (0.17677 0.17677 1) // top hollow cylinder
-	arc 19 20 (-0.17677 0.17677 1)
-	arc 20 21 (-0.17677 -0.17677 1)
-	arc 21 18 (0.17677 -0.17677 1)
+	arc 14 15 (0.17677 0.17677 1) // top hollow cylinder
+	arc 15 16 (-0.17677 0.17677 1)
+	arc 16 17 (-0.17677 -0.17677 1)
+	arc 17 14 (0.17677 -0.17677 1)
 	
-	arc 23 24 (0.00707 0.00707 1) // top inner cylinder
-	arc 24 25 (-0.00707 0.00707 1) 
-	arc 25 26 (-0.00707 -0.00707 1) 
-	arc 26 23 (0.00707 -0.00707 1)
+	arc 19 20 (0.00707 0.00707 1) // top inner cylinder
+	arc 20 21 (-0.00707 0.00707 1) 
+	arc 21 22 (-0.00707 -0.00707 1) 
+	arc 22 19 (0.00707 -0.00707 1)
 );
 
 boundary
 (
-	bottom_second_cylinder 
+	jet_walls 
 	{
 		type wall;
 		faces
 		(
-			(4 14 15 5) 
-			(5 15 16 6)
-			(6 16 17 7)
-			(7 17 14 4)
+			(0 1 11 10) //bottom hollow cylinder 
+			(1 2 12 11)
+			(2 3 13 12)
+			(3 0 10 13)
+		);
+	
+		faces
+		(		
+			(0 14 15 1) //hollow cylinder shell
+			(1 15 16 2)
+			(2 16 17 3)
+			(3 17 14 0)
 		);
 	}
 	
-	second_cylinder_shell 
+	pipe_walls 
 	{
 		type wall;
 		faces
 		(		
-			(4 5 19 18) 
-			(5 6 19 20)
-			(6 7 21 20)
-			(7 4 18 21)
-		);
-	}
-	
-	inlet_pipe_shell 
-	{
-		type wall;
-		faces
-		(		
-			(10 11 15 14) 
-			(11 12 15 16)
-			(12 13 17 16)
-			(13 10 14 17)
-		);
-	}
-	
-	inlet_pipe_bottom
-	{
-		type inlet;
-		faces
-		(
-			(10 8 8 11)
-			(11 8 8 12)
-			(12 8 8 13)
-			(13 8 8 10)
+			(6 10 11 7) //inlet pipe shell 
+			(7 11 12 8)
+			(8 12 13 9)
+			(9 13 10 6)
 		);
 	}
 
-	outlet_hollow_cylinder
+
+	inlet
 	{
-		type outlet;
+		type patch;
 		faces
 		(
-			(18 23 24 19) 
-			(19 24 25 20)
-			(20 25 26 21)
-			(21 26 23 18)
-		);
-	}
-	
-	outlet_inner_cylinder
-	{
-		type outlet;
-		faces
-		(
-			(23 22 22 24) 
-			(24 22 22 25)
-			(25 22 22 26)
-			(26 22 22 23)
+			(7 4 4 6) //inlet pipe bottom
+			(8 4 4 7)
+			(9 4 4 8)
+			(6 4 4 9)
 		);
 	}
 
-	//inner_cylinder_shell  (((faces for mergePatchPairs)))
+	outlet
+	{
+		type patch;
+		faces
+		(
+			(14 19 20 15) //outlet hollow cylinder 
+			(15 20 21 16)
+			(16 21 22 17)
+			(17 22 19 14)
+		);
+		
+		faces
+		(
+			(19 18 18 20) //outlet inner cylinder
+			(20 18 18 21)
+			(21 18 18 22)
+			(22 18 18 19)
+		);
+	}	
+	
+	//inner_cylinder_shell  (((mergePatchPairs faces)))
 	//{
 	//	type patch;
 	//	faces
 	//	(	
-	//		(14 15 24 23) 
-	//		(15 16 24 25)
-	//		(16 17 26 25)
-	//		(17 14 23 26)
+	//		() 
+	//		()
+	//		()
+	//		()
 	//	);
 	//}
 	//
@@ -200,16 +189,16 @@ boundary
 	//		()
 	//	);
 	//}
-	//	
+	//
 	//inlet_pipe_top
 	//{
 	//	type patch;
 	//	faces
 	//	(
-	//		(15 9 9 14)
-	//		(16 9 9 15)
-	//		(17 9 9 16)
-	//		(14 9 9 17)
+	//		()
+	//		()
+	//		()
+	//		()
 	//	);
 	//}
 	//
@@ -218,19 +207,17 @@ boundary
 	//	type patch;
 	//	faces
 	//	(
-	//		(14 9 9 15) 
-	//		(15 9 9 16)
-	//		(16 9 9 17)
-	//		(17 9 9 14)
+	//		() 
+	//		()
+	//		()
+	//		()
 	//	);
 	//}
-	
 );
 
-mergePatchPairs
-(
-
-);		
-
+//mergePatchPairs
+//(
+//
+//);
 
 // ************************************************************************* //
