@@ -3,7 +3,7 @@ processor*
 *.out
 *.err
 log.*
-0*
+0
 *.foam
 postProcessing
 constant/aerosolProperties

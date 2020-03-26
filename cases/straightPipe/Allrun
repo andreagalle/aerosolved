@@ -159,9 +159,9 @@ rm -f 0/*.m4
 
 runApplication blockMesh
 
-wmake bendPipe
+#wmake bendPipe
 
-runApplication bendPipe -latestTime
+#runApplication bendPipe -latestTime
 
 runApplication decomposePar
 
