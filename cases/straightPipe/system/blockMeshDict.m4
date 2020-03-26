@@ -16,7 +16,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 
-metres 1;
+convertometres 1;
 
 vertices
 (
@@ -103,7 +103,7 @@ boundary
 (
 	jet_walls 
 	{
-		type wall;
+		type patch;
 		faces
 		(
 			(0 1 11 10) //bottom hollow cylinder 
