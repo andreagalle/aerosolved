@@ -28,7 +28,12 @@ boundaryField
         value       $internalField;
     }
 
-    walls
+    jet_walls
+    {
+        type        zeroGradient;
+    }
+
+    pipe_walls
     {
         type        zeroGradientAbsorbingWall;
         value       $internalField;

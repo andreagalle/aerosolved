@@ -101,38 +101,6 @@ edges
 
 boundary
 (
-	jet_walls 
-	{
-		type patch;
-		faces
-		(
-			(0 1 11 10) //bottom hollow cylinder 
-			(1 2 12 11)
-			(2 3 13 12)
-			(3 0 10 13)
-		);
-	
-		faces
-		(		
-			(0 14 15 1) //hollow cylinder shell
-			(1 15 16 2)
-			(2 16 17 3)
-			(3 17 14 0)
-		);
-	}
-	
-	pipe_walls 
-	{
-		type wall;
-		faces
-		(		
-			(6 10 11 7) //inlet pipe shell 
-			(7 11 12 8)
-			(8 12 13 9)
-			(9 13 10 6)
-		);
-	}
-
 
 	inlet
 	{
@@ -165,6 +133,38 @@ boundary
 			(22 18 18 19)
 		);
 	}	
+
+	jet_walls 
+	{
+		type patch;
+		faces
+		(
+			(0 1 11 10) //bottom hollow cylinder 
+			(1 2 12 11)
+			(2 3 13 12)
+			(3 0 10 13)
+		);
+	
+		faces
+		(		
+			(0 14 15 1) //hollow cylinder shell
+			(1 15 16 2)
+			(2 16 17 3)
+			(3 17 14 0)
+		);
+	}
+	
+	pipe_walls 
+	{
+		type wall;
+		faces
+		(		
+			(6 10 11 7) //inlet pipe shell 
+			(7 11 12 8)
+			(8 12 13 9)
+			(9 13 10 6)
+		);
+	}
 	
 	//inner_cylinder_shell  (((mergePatchPairs faces)))
 	//{

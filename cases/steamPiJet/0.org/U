@@ -16,7 +16,7 @@ boundaryField
     inlet
     {
         type        fixedValue;
-        value       uniform (1 0 0);
+        value       uniform (0 0 1);
     }
 
     outlet
@@ -24,7 +24,12 @@ boundaryField
         type        zeroGradient;
     }
 
-    walls
+    jet_walls
+    {
+        type        zeroGradient;
+    }
+
+    pipe_walls
     {
         type        noSlip;
     }

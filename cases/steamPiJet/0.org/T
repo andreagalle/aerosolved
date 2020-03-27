@@ -9,7 +9,7 @@ FoamFile
 
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 293.15;
+internalField   uniform 413.00;
 
 boundaryField
 {
@@ -26,7 +26,12 @@ boundaryField
         value       $internalField;
     }
 
-    walls
+    jet_walls
+    {
+        type        zeroGradient;
+    }
+
+    pipe_walls
     {
         type        zeroGradient;
     }

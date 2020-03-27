@@ -24,7 +24,12 @@ boundaryField
         type        zeroGradient;
     }
 
-    walls
+    jet_walls
+    {
+        type        zeroGradient;
+    }
+
+    pipe_walls
     {
         type        zeroGradientDepositionVelocity;
         value       $internalField;
